@@ -1,0 +1,24 @@
+<?php
+
+namespace DummyNamespace;
+
+use Putheng\Filter\FiltersAbstract;
+
+class DummyClass extends FiltersAbstract
+{
+    /**
+     * Default course filters.
+     * 
+     * @var array
+     */
+    protected $filters = [
+        //
+    ];
+
+    public static function mappings()
+    {
+        return [
+            //
+        ];
+    }
+}
