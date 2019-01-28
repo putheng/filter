@@ -11,7 +11,7 @@ Laravel 5.5 uses Package Auto-Discovery, so doesn't require you to manually add 
 ### Setting up from scratch
 
 #### Laravel 5.5+:
-If you don't use auto-discovery, add the ServiceProvider to the providers array in config/app.php
+If you don't use auto-discovery, add the ServiceProvider to the providers array in `config/app.php`
 ```php
 Putheng\Filter\FilterServiceProvider::class,
 ```
