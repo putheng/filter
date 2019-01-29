@@ -20,11 +20,11 @@ Putheng\Filter\FilterServiceProvider::class,
 
 Example:
 `php artisan filter:make CourseFilter`
-Filter class is locat `app/Filters`
+Filter class located `app/Filters`
 
 Create a new Filter Extension class
 `php artisan filter:by DifficultyFilter`
-Filter Extension class is locat `app/Filters/Filter`
+Filter Extension class located `app/Filters/Filter`
 
 Add `DifficultyFilter` extension to `DifficultyFilter` class on `$filters` property
 ```php
