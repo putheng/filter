@@ -16,7 +16,6 @@ If you don't use auto-discovery, add the ServiceProvider to the providers array 
 Putheng\Filter\FilterServiceProvider::class,
 ```
 
-## Usage
 ##### Create a new Filter class
 
 Example:
@@ -34,4 +33,18 @@ use App\Filters\Filter\DifficultyFilter;
 protected $filters = [
     'difficulty' => DifficultyFilter::class,
 ];
+```
+
+Add filter scope to model we want to filter, example `Course` model
+```php
+//User filter class that we just generated
+use App\Filters\CourseFilters;
+
+//User Eloquent's builder class
+use Illuminate\Database\Eloquent\Builder;
+
+public function scopeFilter(Builder $builder, Request $request, array $filters = [])
+{
+    return (new CourseFilters($request))->add($filters)->filter($builder);
+}
 ```
