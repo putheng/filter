@@ -18,7 +18,5 @@ Putheng\Filter\FilterServiceProvider::class,
 
 ##### Create a filter
 
-```php
-php artisan filter:make CourseFilter
-```
+`php artisan filter:make CourseFilter`
 
