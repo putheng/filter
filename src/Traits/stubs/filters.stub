@@ -7,7 +7,7 @@ use Putheng\Filter\FiltersAbstract;
 class DummyClass extends FiltersAbstract
 {
     /**
-     * Default course filters.
+     * Default filters.
      * 
      * @var array
      */

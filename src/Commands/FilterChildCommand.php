@@ -5,7 +5,7 @@ namespace Putheng\Filter\Commands;
 use Illuminate\Console\Command;
 use Putheng\Filter\Traits\Generatable;
 
-class FiltersMakeCommand extends Command
+class FilterChildCommand extends Command
 {
     use Generatable;
     /**
@@ -13,14 +13,14 @@ class FiltersMakeCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'filter:make {filter}';
+    protected $signature = 'filter:child {filter}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a new Filter class';
+    protected $description = 'Create a new Filter Extension class';
 
     /**
      * Create a new command instance.
@@ -41,9 +41,11 @@ class FiltersMakeCommand extends Command
     {
         $controllerBase = app_path() . '/';
         $path = $controllerBase;
+        $arg = $this->argument('filter');
+
         $namespace = 'App';
         
-        $arg = 'Filters\\'. $this->argument('filter');
+        $arg = 'Filters\\Filter\\'. $arg;
 
         $fileParts = explode('\\', $arg);
         $fileName = array_pop($fileParts);
@@ -66,7 +68,7 @@ class FiltersMakeCommand extends Command
             return $this->error('Filter already exists!');
         }
 
-        $stub = $this->generateStub('filters', [
+        $stub = $this->generateStub('filter', [
             'DummyClass' => $fileName,
             'DummyNamespace' => $namespace,
         ]);

@@ -3,7 +3,10 @@
 namespace Putheng\Filter;
 
 use Illuminate\Support\ServiceProvider;
-use Putheng\Filter\Commands\FiltersMakeCommand;
+use Putheng\Filter\Commands\{
+    FiltersMakeCommand,
+    FilterChildCommand
+};
 
 class FilterServiceProvider extends ServiceProvider
 {
@@ -17,6 +20,7 @@ class FilterServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 FiltersMakeCommand::class,
+                FilterChildCommand::class
             ]);
         }
     }

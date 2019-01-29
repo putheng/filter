@@ -15,3 +15,10 @@ If you don't use auto-discovery, add the ServiceProvider to the providers array 
 ```php
 Putheng\Filter\FilterServiceProvider::class,
 ```
+
+##### Create a filter
+
+```php
+php artisan filter:make CourseFilter
+```
+
