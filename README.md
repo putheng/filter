@@ -46,15 +46,17 @@ class DifficultyFilter extends FilterAbstract
 {
     /**
      * Mappings for database values.
-     *
+     * 
+     * Map b on query string map to beginner column on database
+     * 
+     * 'b' => 'beginner'
+     * 'beginner' => 'beginner'
+     * 
      * @return array
      */
     public function mappings()
     {
         return [
-        	/*
-        	 * example: b on query string map to beginner column on database
-        	 */
             'b' => 'beginner',
             'intermediate' => 'intermediate',
             'advanced' => 'advanced',
