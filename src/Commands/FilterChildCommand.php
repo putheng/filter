@@ -13,7 +13,7 @@ class FilterChildCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'filter:child {filter}';
+    protected $signature = 'filter:by {filter}';
 
     /**
      * The console command description.

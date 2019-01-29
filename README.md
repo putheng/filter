@@ -16,7 +16,22 @@ If you don't use auto-discovery, add the ServiceProvider to the providers array 
 Putheng\Filter\FilterServiceProvider::class,
 ```
 
-##### Create a filter
+## Usage
+##### Create a new Filter class
 
+Example:
 `php artisan filter:make CourseFilter`
+Filter class is locat `app/Filters`
 
+Create a new Filter Extension class
+`php artisan filter:by DifficultyFilter`
+Filter Extension class is locat `app/Filters/Filter`
+
+Add `DifficultyFilter` extension to `DifficultyFilter` class on `$filters` property
+```php
+use App\Filters\Filter\DifficultyFilter;
+
+protected $filters = [
+    'difficulty' => DifficultyFilter::class,
+];
+```
