@@ -104,7 +104,7 @@ class Course extends Model
 
 ## Usage
 
-Use `Course` model add `filter` method and pass `$request` argument to filter method
+On controller use `Course` model add `filter` method and pass `$request` argument to filter method
 ```php
 namespace App\Http\Controllers;
 
