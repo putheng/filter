@@ -109,7 +109,6 @@ Use `Course` model add `filter` method and pass `$request` argument to filter me
 namespace App\Http\Controllers;
 
 use App\Course;
-use App\Filters\Course\CourseFilters;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
