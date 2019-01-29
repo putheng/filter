@@ -37,14 +37,40 @@ protected $filters = [
 
 Add filter scope to model we want to filter, example `Course` model
 ```php
-//User filter class that we just generated
+namespace App;
+// use filter class we just generated
 use App\Filters\CourseFilters;
-
-//User Eloquent's builder class
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
-public function scopeFilter(Builder $builder, Request $request, array $filters = [])
+class Course extends Model
 {
-    return (new CourseFilters($request))->add($filters)->filter($builder);
+    public function scopeFilter(Builder $builder, Request $request, array $filters = [])
+    {
+        return (new CourseFilters($request))->add($filters)->filter($builder);
+    }
 }
+
+```
+
+## Usage
+
+Use `Course` model add `filter` method and pass `$request` argument to filter method
+```php
+namespace App\Http\Controllers;
+
+use App\Course;
+use App\Filters\Course\CourseFilters;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class CourseController extends Controller
+{
+    public function index(Request $request)
+    {
+        $filter = Course::filter($request)->get();
+    }
+}
+
 ```
