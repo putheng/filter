@@ -82,7 +82,7 @@ class DifficultyFilter extends FilterAbstract
 }
 ```
 
-
+##### Simple filter
 Add filter scope to model we want to filter, example `Course` model
 ```php
 namespace App;
@@ -101,6 +101,25 @@ class Course extends Model
 }
 
 ```
+
+##### Filter base on relationship,
+Example: `Course` and `Subject` model,
+add polymorphic relationship
+```php
+public function subjects()
+{
+    return $this->morphToMany(Subject::class, 'subjectable');
+}
+```
+
+Builder
+```php
+return $builder->whereHas('subjects', function (Builder $builder) use ($value) {
+    $builder->where('slug', $value);
+});
+```
+
+
 
 ## Usage
 
