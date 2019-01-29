@@ -35,6 +35,52 @@ protected $filters = [
 ];
 ```
 
+Setup `DifficultyFilter` filter class
+```php
+namespace App\Filters\Filter;
+
+use Putheng\Filter\FilterAbstract;
+use Illuminate\Database\Eloquent\Builder;
+
+class DifficultyFilter extends FilterAbstract
+{
+    /**
+     * Mappings for database values.
+     *
+     * @return array
+     */
+    public function mappings()
+    {
+        return [
+        	/*
+        	 * example: b on query string map to beginner column on database
+        	 */
+            'b' => 'beginner',
+            'intermediate' => 'intermediate',
+            'advanced' => 'advanced',
+        ];
+    }
+
+    /**
+     * Filter by course difficulty.
+     *
+     * @param  string $access
+     * @return Illuminate\Database\Eloquent\Builder
+     */
+    public function filter(Builder $builder, $value)
+    {
+        $value = $this->resolveFilterValue($value);
+
+        if ($value === null) {
+            return $builder;
+        }
+
+        return $builder->where('difficulty', $value);
+    }
+}
+```
+
+
 Add filter scope to model we want to filter, example `Course` model
 ```php
 namespace App;
